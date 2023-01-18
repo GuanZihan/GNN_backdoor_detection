@@ -1,0 +1,23 @@
+#XGBD on MUTAG Trigger Size
+
+#python ./src/attack.py --data_path . --model GIN --dataset MUTAG --lr 0.02 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2  --epoch 40 --trigger_size 3 --trigger_density 1 --injection_ratio 0.1 --device 0 --explain_method subgraphx --seed 3 --attack_method subgraph --gamma 0.5
+#python ./src/attack.py --data_path . --model GIN --dataset MUTAG --lr 0.02 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2  --epoch 40 --trigger_size 3 --trigger_density 1 --injection_ratio 0.1 --device 0 --explain_method subgraphx --seed 3 --attack_method subgraph --gamma 0.5
+#python ./src/attack.py --data_path . --model GIN --dataset MUTAG --lr 0.02 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2  --epoch 40 --trigger_size 3 --trigger_density 1 --injection_ratio 0.1 --device 0 --explain_method subgraphx --seed 3 --attack_method subgraph --gamma 0.5
+
+
+python ./src/attack.py --data_path . --model GIN --dataset MUTAG --lr 0.02 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2  --epoch 100 --trigger_size 5 --trigger_density 0.8 --injection_ratio 0.1 --device 0 --explain_method subgraphx --seed 3 --attack_method subgraph --gamma 0.5
+python ./src/attack.py --data_path . --model GIN --dataset MUTAG --lr 0.02 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2  --epoch 100 --trigger_size 5 --trigger_density 0.8 --injection_ratio 0.1 --device 0 --explain_method subgraphx --seed 4 --attack_method subgraph --gamma 0.5
+python ./src/attack.py --data_path . --model GIN --dataset MUTAG --lr 0.02 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2  --epoch 100 --trigger_size 5 --trigger_density 0.8 --injection_ratio 0.1 --device 0 --explain_method subgraphx --seed 2021 --attack_method subgraph --gamma 0.5
+
+
+python ./src/attack.py --data_path . --model GIN --dataset MUTAG --lr 0.02 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2  --epoch 100 --trigger_size 6 --trigger_density 0.8 --injection_ratio 0.1 --device 0 --explain_method subgraphx --seed 3 --attack_method subgraph --gamma 0.5
+python ./src/attack.py --data_path . --model GIN --dataset MUTAG --lr 0.02 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2  --epoch 100 --trigger_size 6 --trigger_density 0.8 --injection_ratio 0.1 --device 0 --explain_method subgraphx --seed 4 --attack_method subgraph --gamma 0.5
+python ./src/attack.py --data_path . --model GIN --dataset MUTAG --lr 0.02 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2  --epoch 100 --trigger_size 6 --trigger_density 0.8 --injection_ratio 0.1 --device 0 --explain_method subgraphx --seed 2021 --attack_method subgraph --gamma 0.5
+
+python  ./src/attack.py --data_path . --model GIN --dataset MUTAG --lr 0.02 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2  --epoch 100 --trigger_size 7 --trigger_density 0.8 --injection_ratio 0.1 --device 0 --explain_method subgraphx --seed 3 --attack_method subgraph --gamma 0.5
+python ./src/attack.py --data_path . --model GIN --dataset MUTAG --lr 0.02 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2  --epoch 100 --trigger_size 7 --trigger_density 0.8 --injection_ratio 0.1 --device 0 --explain_method subgraphx --seed 4 --attack_method subgraph --gamma 0.5
+python ./src/attack.py --data_path . --model GIN --dataset MUTAG --lr 0.02 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2  --epoch 100 --trigger_size 7 --trigger_density 0.8 --injection_ratio 0.1 --device 0 --explain_method subgraphx --seed 2021 --attack_method subgraph --gamma 0.5
+
+#python  ./src/attack.py --data_path . --model GIN --dataset MUTAG --lr 0.02 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2  --epoch 40 --trigger_size 3 --trigger_density 1 --injection_ratio 0.1 --device 0 --explain_method subgraphx --seed 3 --attack_method explain_attack --gamma 0.5
+#python ./src/attack.py --data_path . --model GIN --dataset MUTAG --lr 0.02 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2  --epoch 40 --trigger_size 3 --trigger_density 1 --injection_ratio 0.1 --device 0 --explain_method subgraphx --seed 4 --attack_method explain_attack --gamma 0.5
+#python ./src/attack.py --data_path . --model GIN --dataset MUTAG --lr 0.02 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2  --epoch 40 --trigger_size 3 --trigger_density 1 --injection_ratio 0.1 --device 0 --explain_method subgraphx --seed 2021 --attack_method explain_attack --gamma 0.5
