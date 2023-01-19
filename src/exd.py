@@ -3,8 +3,7 @@ import sys
 
 from torch_geometric.explain import Explainer
 
-sys.path.append("/home/mengxuan/g-mixup/")
-sys.path.append("/home/myid/zg37632/WORK_SPACE/g-mixup/")
+
 print(sys.path)
 import logging
 import os.path as osp
