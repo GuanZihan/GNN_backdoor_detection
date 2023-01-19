@@ -1,7 +1,5 @@
 # coding=utf-8
 import sys
-sys.path.append("/home/myid/zg37632/WORK_SPACE/g-mixup")
-sys.path.append("/home/mengxuan/g-mixup/")
 
 
 print(sys.path)

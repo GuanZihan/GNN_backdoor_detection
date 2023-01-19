@@ -1,7 +1,7 @@
 # coding=utf-8
 import sys
 
-sys.path.append("/home/mengxuan/g-mixup/")
+
 print(sys.path)
 import logging
 import os.path as osp

@@ -4,7 +4,6 @@ import numpy as np
 import torch
 import sys
 import matplotlib.pyplot as plt
-sys.path.append("/home/myid/zg37632/WORK_SPACE/g-mixup")
 # from Regal import xnetmf
 import argparse
 from utils.utils import get_pretrained_model
