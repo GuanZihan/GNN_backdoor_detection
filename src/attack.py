@@ -1,8 +1,5 @@
 # coding=utf-8
 import sys
-
-
-print(sys.path)
 import logging
 import os.path as osp
 import numpy as np
@@ -26,7 +23,7 @@ from torch_geometric.data import Data
 from torch.optim.lr_scheduler import StepLR
 from tqdm import tqdm
 
-from models import GIN, GCN, GraphSAGE, NodeGCN, GCN_N
+from models import GIN, GCN, GraphSAGE
 from data_loader import inject_sub_trigger, S2VGraph, inject_explainability_graph
 from graphcnn import GraphCNN
 from sklearn import manifold, datasets
@@ -364,17 +361,17 @@ if __name__ == '__main__':
     learning_rate = args.lr
     model = args.model
 
-    handler = logging.FileHandler(
-        "./logs/[{}]Dataset{}+TriggerSize{}+TriggerDensity{}+Attack{}.txt".format(args.explain_method, args.dataset, args.trigger_size,
-                                                                     args.trigger_density, args.attack_method),
-        encoding='utf-8', mode='a')
+    #handler = logging.FileHandler(
+    #    "./logs/[{}]Dataset{}+TriggerSize{}+TriggerDensity{}+Attack{}.txt".format(args.explain_method, args.dataset, args.trigger_size,
+    #                                                                 args.trigger_density, args.attack_method),
+    #    encoding='utf-8', mode='a')
 
     if log_screen is True:
         ch = logging.StreamHandler()
         ch.setLevel(logging.DEBUG)
         ch.setFormatter(formatter)
         logger.addHandler(ch)
-        logger.addHandler(handler)
+     #   logger.addHandler(handler)
 
     logger.info('parser.prog: {}'.format(parser.prog))
     logger.info("args:{}".format(args))
@@ -416,53 +413,6 @@ if __name__ == '__main__':
 
         _, _, _, clean_test_dataset = inject_sub_trigger(args, copy.deepcopy(test_dataset), inject_ratio=0,
                                                          target_label=args.target_label)
-    elif args.attack_method == "explain_attack":
-        train_dataset, injected_graph_idx, backdoor_train_dataset, clean_train_dataset = inject_explainability_graph(
-            args, copy.deepcopy(train_dataset),
-            inject_ratio=args.injection_ratio,
-            target_label=args.target_label,
-            backdoor_num=args.trigger_size,
-            density=args.trigger_density)
-
-        _, _, backdoor_test_dataset, _ = inject_explainability_graph(args, copy.deepcopy(test_dataset), inject_ratio=1,
-                                                            target_label=args.target_label,
-                                                            density=args.trigger_density,
-                                                            backdoor_num=args.trigger_size)
-
-        _, _, _, clean_test_dataset = inject_explainability_graph(args, copy.deepcopy(test_dataset), inject_ratio=0,
-                                                         target_label=args.target_label)
-    elif args.attack_method == 'GTA':
-        train_dataset = []
-        backdoor_test_dataset = []
-        fixed_trainset = np.load("GTA/GTA_train_dataset_{}_{}.npy".format(args.dataset, args.trigger_size), allow_pickle=True)
-        injected_graph_idx = np.load("GTA/GTA_perm_index_{}_{}.npy".format(args.dataset, args.trigger_size), allow_pickle=True)
-
-        fixed_testset = np.load("GTA/GTA_backdoor_test_dataset_{}_{}.npy".format(args.dataset, args.trigger_size), allow_pickle=True)
-        injected_graph_idx_test = np.load("GTA/GTA_perm_index_test_{}_{}.npy".format(args.dataset, args.trigger_size), allow_pickle=True)
-
-        # gta_model_root = "GTA/gcn_{}.pth".format(args.dataset)
-
-        # model_gcn = GCN_N(4, args.num_classes, [64, 64, 64, 64, 64], dropout=0)
-        # model_gcn.load_state_dict(torch.load(gta_model_root))
-
-        for idx, (graph, x, y) in enumerate(fixed_trainset):
-            sparse_graph = sparse.csr_matrix(graph)
-            edge_index, edge_weight = torch_geometric.utils.from_scipy_sparse_matrix(sparse_graph)
-            data = Data(x=x, edge_index=edge_index, y=torch.LongTensor([y]))
-            train_dataset.append(data)
-
-        for idx, (graph, x, y) in enumerate(fixed_testset):
-            if idx in injected_graph_idx_test:
-                sparse_graph = sparse.csr_matrix(graph)
-                edge_index, edge_weight = torch_geometric.utils.from_scipy_sparse_matrix(sparse_graph)
-                data = Data(x=x, edge_index=edge_index, y=torch.LongTensor([y]))
-                backdoor_test_dataset.append(data)
-
-
-        _, _, _, clean_test_dataset = inject_sub_trigger(args, copy.deepcopy(test_dataset), inject_ratio=0,
-                                                         target_label=args.target_label)
-
-
     else:
         raise NotImplementedError
 

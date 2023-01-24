@@ -3,6 +3,9 @@ import networkx as nx
 import numpy as np
 import torch
 import sys
+sys.path.append("GNN_backdoor_detection")
+sys.path.append("..")
+print(sys.path)
 import matplotlib.pyplot as plt
 # from Regal import xnetmf
 import argparse
