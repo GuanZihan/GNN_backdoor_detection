@@ -7,14 +7,14 @@ XGBD is an e**X**planation-**G**uided **B**ackdoor **D**etection method on graph
 ### XGBD with SubgraphX
 
 ```shell
-python ./src/attack.py --log_screen True --data_path . --model GIN --dataset MUTAG --lr 0.01 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2 --epoch 20 --trigger_size 4 --trigger_density 0.8 --injection_ratio 0.1 --device 0 --explain_method subgraphx --seed 100 --attack_method subgraph --gamma 0.5
+python attack.py --log_screen True --data_path . --model GIN --dataset MUTAG --lr 0.01 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2 --epoch 20 --trigger_size 4 --trigger_density 0.8 --injection_ratio 0.1 --device 0 --explain_method subgraphx --seed 100 --attack_method subgraph --gamma 0.5
 ```
 ### XGBD with GNNExplainer
 ```shell
-python ./src/attack.py --log_screen True --data_path . --model GIN --dataset MUTAG --lr 0.01 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2 --epoch 20 --trigger_size 4 --trigger_density 0.8 --injection_ratio 0.1 --device 0 --explain_method GNNExplainer --seed 100 --attack_method subgraph --gamma 0.5
+python attack.py --log_screen True --data_path . --model GIN --dataset MUTAG --lr 0.01 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2 --epoch 20 --trigger_size 4 --trigger_density 0.8 --injection_ratio 0.1 --device 0 --explain_method GNNExplainer --seed 100 --attack_method subgraph --gamma 0.5
 ```
 ### XGBD with PGExplainer
 ```shell
-python ./src/attack.py --log_screen True --data_path . --model GIN --dataset MUTAG --lr 0.01 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2 --epoch 20 --trigger_size 4 --trigger_density 0.8 --injection_ratio 0.1 --device 0 --explain_method PGExplainer --seed 100 --attack_method subgraph --gamma 0.5
+python attack.py --log_screen True --data_path . --model GIN --dataset MUTAG --lr 0.01 --log_screen True --batch_size 64 --num_hidden 128 --num_classes 2 --epoch 20 --trigger_size 4 --trigger_density 0.8 --injection_ratio 0.1 --device 0 --explain_method PGExplainer --seed 100 --attack_method subgraph --gamma 0.5
 ```
 
